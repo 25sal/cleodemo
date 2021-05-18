@@ -45,6 +45,22 @@ function onConnect(status)
 	connection.addHandler(onMessage, null, 'message', null, null,  null); 
 	connection.send($pres().tree());
     }
+    
+    alert("setting canvas");
+    var action1 = Mirador.actions.setCanvas('main_window', 'http://localhost/~salvatore/alba/msprova/index.json/canvas/1')
+	// Now we can dispatch it.
+	miradorInstance.store.dispatch(action1);
+	
+	    alert("remove manifest");
+    var action3 = Mirador.actions.removeManifest('msprova/manifest.json');
+	// Now we can dispatch it.
+	miradorInstance.store.dispatch(action3);
+	
+	alert("adding manifest");
+	var action2 = Mirador.actions.addResource('http://143.225.20.99/alba/manifest.json')
+	// Now we can dispatch it.
+	miradorInstance.store.dispatch(action2);
+    
 }
 
 //Questa funzione viene chiamata quando devo ricevere un messaggio (una sorta di listener,
@@ -67,7 +83,13 @@ function onMessage(msg) {
     
 	// we must return true to keep the handler alive.  
     // returning false would remove it after it finishes.
+    
+    
     var action = Mirador.actions.setCanvas('main_window', 'http://localhost/~salvatore/alba/msprova/index.json/canvas/1')
+	// Now we can dispatch it.
+	miradorInstance.store.dispatch(action);
+	
+	var action = Mirador.actions.setCanvas('main_window', 'http://localhost/~salvatore/alba/msprova/index.json/canvas/1')
 	// Now we can dispatch it.
 	miradorInstance.store.dispatch(action);
 
